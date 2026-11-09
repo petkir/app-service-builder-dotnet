@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#edf2f6">
+  <title>Weather / Redmond &amp; Enns</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="brand" href="/" aria-label="Weather home"><span class="brand-mark" aria-hidden="true">&#9728;</span> WEATHER / TWO PLACES</a>
+      <span class="edition">47&deg; N &nbsp; / &nbsp; 48&deg; N</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">A LITTLE PERSPECTIVE, EVERY DAY</p>
+          <h1 id="page-title">Two cities.<br><span>One forecast.</span></h1>
+          <p class="subtitle">From the Pacific Northwest to the heart of Austria.<br>Current conditions and the week ahead, side by side.</p>
+        </div>
+        <div class="refresh-area">
+          <button id="refresh-all" class="primary-button" type="button">Refresh both <span aria-hidden="true">&#8635;</span></button>
+          <p>Degrees Celsius &middot; Wind in km/h<br>Updated on request &middot; Cached for 5 minutes</p>
+        </div>
+      </section>
+      <div id="cities" class="city-grid"></div>
+      <noscript><p class="error">Please enable JavaScript to load weather from this site's API.</p></noscript>
+      <section class="page-note" aria-label="About this forecast">
+        <span class="note-mark" aria-hidden="true">i</span>
+        <p>A shared forecast, different time zones. Times and forecast dates are local to each city.
+          Current conditions are modelled estimates, not live station observations.</p>
+      </section>
+    </main>
+    <footer>
+      <span>SMALL WORLD. DIFFERENT WEATHER.</span>
+      <p>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+        &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+    </footer>
+  </div>
+  <template id="city-template">
+    <article class="city-card">
+      <header class="city-header">
+        <div><p class="city-region"></p><h2 class="city-name"></h2></div>
+        <span class="city-number" aria-hidden="true"></span>
+      </header>
+      <div class="card-status" role="status" aria-live="polite"></div>
+      <p class="error" role="alert" hidden></p>
+      <div class="weather-content" hidden>
+        <section class="current" aria-label="Current conditions">
+          <div class="current-summary">
+            <div><p class="section-label">RIGHT NOW</p><p class="temperature"></p></div>
+            <span class="weather-icon current-icon" aria-hidden="true"></span>
+          </div>
+          <p class="condition"></p>
+          <p class="observation"></p>
+          <dl class="metrics">
+            <div><dt>Feels like</dt><dd class="feels-like"></dd></div>
+            <div><dt>Humidity</dt><dd class="humidity"></dd></div>
+            <div><dt>Wind</dt><dd class="wind"></dd></div>
+          </dl>
+        </section>
+        <section class="forecast">
+          <div class="forecast-heading"><h3>The week ahead</h3><span>7-DAY FORECAST</span></div>
+          <div class="table-scroll">
+            <table>
+              <caption class="sr-only"></caption>
+              <thead><tr><th scope="col">Day</th><th scope="col">Conditions</th><th scope="col">High</th><th scope="col">Low</th><th scope="col">Rain</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <div class="card-bottom"><p class="updated">Waiting for weather</p><button class="city-refresh" type="button">Retry</button></div>
+    </article>
+  </template>
+</body>
+</html>

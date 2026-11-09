@@ -20,3 +20,5 @@ jobs:
           global-json-file: global.json
       - name: Publish and check HTTP behavior
         run: bash scripts/smoke-test.sh
+      - name: Test weather proxy with deterministic upstream responses
+        run: dotnet test tests/BuilderDotnetSample.Tests/BuilderDotnetSample.Tests.csproj -p:RestoreConfigFile=NuGet.Config

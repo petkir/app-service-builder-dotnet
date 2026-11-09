@@ -1,0 +1,16 @@
+@baseUrl = http://localhost:8080
+
+### Redmond, Washington: current conditions and seven-day forecast
+GET {{baseUrl}}/api/weather/redmond
+Accept: application/json
+
+### Enns, Austria: current conditions and seven-day forecast
+GET {{baseUrl}}/api/weather/enns
+Accept: application/json
+
+### Unsupported city: 404 Problem Details
+GET {{baseUrl}}/api/weather/london
+Accept: application/json
+
+### OpenAPI (ASPNETCORE_ENVIRONMENT=Development only)
+GET {{baseUrl}}/openapi/v1.json
