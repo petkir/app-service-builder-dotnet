@@ -1,6 +1,6 @@
-# App Service Builder: Redmond & Enns weather
+# App Service Builder: Redmond & Enns weather sample
 
-A standalone, minimal ASP.NET app for learning how to deploy committed GitHub
+A standalone, minimal ASP.NET sample app for learning how to deploy committed GitHub
 source with [App Service Builder](https://builderapps.azure.com/docs/). The app
 targets .NET 10 and serves a weather dashboard with a same-host Open-Meteo proxy.
 The frontend is plain HTML, CSS, and JavaScript with no frontend build step.
